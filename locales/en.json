@@ -1,0 +1,44 @@
+{
+  "page_title": "Portfolio - Yasueth Gilberto Ortega Ortega",
+  "name": "Yasueth Gilberto Ortega Ortega",
+  "title": "Software Developer",
+  "nav": {
+    "about": "About me",
+    "contact": "Contact",
+    "skills": "Skills",
+    "portfolio": "Portfolio",
+    "download_cv": "Download CV"
+  },
+  "cards": {
+    "portfolio": "Portfolio",
+    "profile_photo": "Profile picture",
+    "studies": "Education"
+  },
+  "sections": {
+    "about_me": "About me",
+    "contact": "Contact",
+    "skills": "Skills",
+    "portfolio": "Portfolio",
+    "detailed_skills": "Skills",
+    "learning": "Learning",
+    "education": "Education"
+  },
+  "about_text": "Hello! I am a passionate software developer focused on creating interactive, accessible, and high-performance web solutions.",
+  "skills_summary": "Specialized in frontend and backend development, API integration, and clean code principles.",
+  "projects": {
+    "project1_title": "QR Studio Pro",
+    "project1_desc": "Professional QR Code Generator",
+    "project2_title": "Matrix Simulator PRO",
+    "project2_desc": "Matrix visualization and calculation tool"
+  },
+  "skills_categories": {
+    "languages": "Programming languages",
+    "languages_desc": "JavaScript, TypeScript, Python, HTML5, CSS3",
+    "frameworks": "Frameworks and libraries",
+    "frameworks_desc": "React, Node.js, Express, TailwindCSS",
+    "tools": "Software & Tools",
+    "tools_desc": "Git, GitHub, VS Code, Figma, Docker",
+    "learning_desc": "Next.js, GraphQL, Applied Artificial Intelligence",
+    "education_desc": "Software Engineering / Web Development Certifications"
+  }
+}

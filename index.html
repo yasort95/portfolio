@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="page_title">Portafolio - Yasueth Gilberto Ortega Ortega</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- Iconos de Lucide o FontAwesome si deseas -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Fondo animado de partículas y constelaciones -->
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+  <!-- Barra de navegación fija con Hamburguesa y selector de Idioma -->
+  <header class="navbar">
+    <button id="menu-btn" class="icon-btn" aria-label="Abrir menú">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <div class="lang-selector">
+      <label for="lang-select"><i class="fa-solid fa-globe"></i></label>
+      <select id="lang-select">
+        <option value="es">ES</option>
+        <option value="en">EN</option>
+      </select>
+    </div>
+  </header>
+
+  <!-- Menú lateral desplegable (Sidebar) -->
+  <aside id="sidebar" class="sidebar">
+    <button id="close-menu-btn" class="close-btn" aria-label="Cerrar menú">&times;</button>
+    <nav class="sidebar-links">
+      <a href="#sobre-mi" data-i18n="nav.about">Sobre mí</a>
+      <a href="#habilidades" data-i18n="nav.skills">Habilidades</a>
+      <a href="#portafolio" data-i18n="nav.portfolio">Portafolio</a>
+      <a href="#contacto" data-i18n="nav.contact">Contacto</a>
+      <a href="assets/cv.pdf" download="CV_Yasueth_Gilberto_Ortega.pdf" target="_blank" rel="noopener noreferrer" class="btn-cv">
+        <i class="fa-solid fa-file-arrow-down"></i> <span data-i18n="nav.download_cv">Descargar CV</span>
+      </a>
+    </nav>
+  </aside>
+  <div id="overlay" class="overlay"></div>
+
+  <!-- Encabezado principal -->
+  <header class="hero-header">
+    <h1 class="main-title" data-i18n="name">Yasueth Gilberto Ortega Ortega</h1>
+    <h2 class="sub-title" data-i18n="title">Desarrollador de software</h2>
+  </header>
+
+  <main class="container">
+
+    <!-- Fila superior de 3 tarjetas tipo chevron (Portafolio, Foto, Estudios) -->
+    <section class="top-cards-section">
+      <a href="#portafolio" class="chevron-card">
+        <span data-i18n="cards.portfolio">Portafolio</span>
+      </a>
+      <div class="chevron-card profile-card">
+        <!-- Puedes colocar una imagen <img> dentro -->
+        <span data-i18n="cards.profile_photo">Foto de perfil</span>
+      </div>
+      <a href="#estudios" class="chevron-card">
+        <span data-i18n="cards.studies">Estudios</span>
+      </a>
+    </section>
+
+    <!-- Sección Sobre mí -->
+    <section id="sobre-mi" class="section-block">
+      <h3 class="section-label" data-i18n="sections.about_me">Sobre mí</h3>
+      <div class="gradient-banner">
+        <p data-i18n="about_text">¡Hola! Soy un apasionado desarrollador de software enfocado en crear soluciones web interactivas, accesibles y de alto impacto.</p>
+      </div>
+    </section>
+
+    <!-- Sección Habilidades (Banner) -->
+    <section id="habilidades" class="section-block">
+      <h3 class="section-label" data-i18n="sections.skills">Habilidades</h3>
+      <div class="gradient-banner">
+        <p data-i18n="skills_summary">Especializado en desarrollo frontend y backend, integración de APIs y buenas prácticas de desarrollo.</p>
+      </div>
+    </section>
+
+    <!-- Sección Portafolio (Tarjetas con corte inferior) -->
+    <section id="portafolio" class="section-block">
+      <h3 class="section-label" data-i18n="sections.portfolio">Portafolio</h3>
+      <div class="portfolio-cards-grid">
+        <a href="https://yasort95.github.io/" target="_blank" rel="noopener noreferrer" class="ribbon-card project-card" title="Abrir proyecto: QR Studio Pro">
+          <img src="assets/proyecto1.png" alt="QR Studio Pro - Generador de Códigos QR" class="project-img">
+          <div class="project-overlay">
+            <h4 data-i18n="projects.project1_title">QR Studio Pro</h4>
+            <p data-i18n="projects.project1_desc">Generador de Códigos QR Profesional</p>
+          </div>
+        </a>
+        <a href="https://yasort95.github.io/yasort95-cal.io/" target="_blank" rel="noopener noreferrer" class="ribbon-card project-card" title="Abrir proyecto: Simulador de Matrices PRO">
+          <img src="assets/proyecto2.png" alt="Simulador de Matrices PRO" class="project-img">
+          <div class="project-overlay">
+            <h4 data-i18n="projects.project2_title">Simulador de Matrices PRO</h4>
+            <p data-i18n="projects.project2_desc">Visualización y cálculo de matrices</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Sección Skills detalladas, Aprendiendo y Estudios -->
+    <section class="details-section">
+      <h3 class="detail-label-green" data-i18n="sections.detailed_skills">Skills</h3>
+
+      <div class="detail-item">
+        <h4 class="detail-title-blue" data-i18n="skills_categories.languages">Lenguajes de programación</h4>
+        <p class="detail-desc" data-i18n="skills_categories.languages_desc">JavaScript, TypeScript, Python, HTML5, CSS3</p>
+      </div>
+
+      <div class="detail-item">
+        <h4 class="detail-title-blue" data-i18n="skills_categories.frameworks">Frameworks y librerías</h4>
+        <p class="detail-desc" data-i18n="skills_categories.frameworks_desc">React, Node.js, Express, TailwindCSS</p>
+      </div>
+
+      <div class="detail-item">
+        <h4 class="detail-title-blue" data-i18n="skills_categories.tools">Software y Herramientas</h4>
+        <p class="detail-desc" data-i18n="skills_categories.tools_desc">Git, GitHub, VS Code, Figma, Docker</p>
+      </div>
+
+      <div class="detail-item extra-space">
+        <h3 class="detail-label-green" data-i18n="sections.learning">Aprendiendo</h3>
+        <p class="detail-desc" data-i18n="skills_categories.learning_desc">Next.js, GraphQL, Inteligencia Artificial aplicada</p>
+      </div>
+
+      <div id="estudios" class="detail-item extra-space">
+        <h3 class="detail-label-green" data-i18n="sections.education">Estudios</h3>
+        <p class="detail-desc" data-i18n="skills_categories.education_desc">Ingeniería de Software / Certificaciones de Desarrollo Web</p>
+      </div>
+    </section>
+
+    <!-- Sección Contacto (Al final de la página) -->
+    <section id="contacto" class="section-block extra-space">
+      <h3 class="section-label" data-i18n="sections.contact">Contacto</h3>
+      <div class="contact-circles">
+        <a href="https://www.linkedin.com/in/yasueth-ortega-610643262" target="_blank" rel="noopener noreferrer" class="circle-btn linkedin" title="LinkedIn: yasueth-ortega-610643262" aria-label="LinkedIn">
+          <i class="fa-brands fa-linkedin"></i>
+          <span>LinkedIn</span>
+        </a>
+        <a href="https://github.com/yasort95" target="_blank" rel="noopener noreferrer" class="circle-btn github" title="GitHub: yasort95" aria-label="GitHub">
+          <i class="fa-brands fa-github"></i>
+          <span>GitHub</span>
+        </a>
+        <a href="mailto:yasuethortega95@gmail.com" class="circle-btn email" title="Enviar correo a: yasuethortega95@gmail.com" aria-label="Email">
+          <i class="fa-solid fa-envelope"></i>
+          <span>Email</span>
+        </a>
+        <a href="https://wa.me/50769491401" target="_blank" rel="noopener noreferrer" class="circle-btn whatsapp" title="WhatsApp: +507 6949-1401" aria-label="WhatsApp">
+          <i class="fa-brands fa-whatsapp"></i>
+          <span>WhatsApp</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

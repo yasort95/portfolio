@@ -1,0 +1,510 @@
+/* ==================== RESET & VARIABLES ==================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-color: #120025;          /* Morado muy oscuro idéntico a la imagen */
+  --header-bg: #8054d8;        /* Tono púrpura de la cabecera */
+  --text-green: #8fe537;       /* Verde lima brillante */
+  --card-bg: #c5d0dc;          /* Gris azulado de las tarjetas */
+  --card-text: #1b1625;        /* Texto dentro de las tarjetas */
+  --detail-blue: #1c62f2;      /* Azul eléctrico para títulos de skills */
+  --gradient-card: linear-gradient(90deg, #16938a 0%, #46bd54 50%, #76d946 100%);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 70px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: #ffffff;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ==================== BARRA SUPERIOR ==================== */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 12px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  background: rgba(18, 0, 37, 0.7);
+  backdrop-filter: blur(8px);
+}
+
+.icon-btn {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 1.6rem;
+  cursor: pointer;
+  transition: transform 0.2s, color 0.2s;
+}
+
+.icon-btn:hover {
+  color: var(--text-green);
+  transform: scale(1.1);
+}
+
+.lang-selector {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.lang-selector select {
+  background: #25094d;
+  color: #ffffff;
+  border: 1px solid var(--text-green);
+  padding: 5px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  outline: none;
+}
+
+/* ==================== MENÚ LATERAL (SIDEBAR) ==================== */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -280px;
+  width: 260px;
+  height: 100%;
+  background: #1b0238;
+  border-right: 2px solid var(--text-green);
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  transition: left 0.3s ease;
+}
+
+.sidebar.active {
+  left: 0;
+}
+
+.close-btn {
+  align-self: flex-end;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.sidebar-links {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.sidebar-links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: color 0.2s;
+}
+
+.sidebar-links a:hover {
+  color: var(--text-green);
+}
+
+.btn-cv {
+  display: inline-block;
+  background: var(--text-green);
+  color: #120025 !important;
+  font-weight: bold;
+  padding: 10px 14px;
+  border-radius: 6px;
+  text-align: center;
+  margin-top: 15px;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.btn-cv:hover {
+  opacity: 0.9;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  z-index: 150;
+}
+
+.overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ==================== HEADER PRINCIPAL ==================== */
+.hero-header {
+  background-color: var(--header-bg);
+  padding: 40px 20px 25px 20px;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.main-title {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.sub-title {
+  color: var(--text-green);
+  font-size: 1.15rem;
+  font-weight: 400;
+  margin-top: 6px;
+}
+
+/* ==================== CONTENEDOR ==================== */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px 80px 20px;
+}
+
+/* ==================== TARJETAS SUPERIORES (CHEVRON INVERTIDO) ==================== */
+.top-cards-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 50px;
+}
+
+.chevron-card {
+  background-color: var(--card-bg);
+  color: var(--card-text);
+  height: 170px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  /* Forma con punta inferior apuntando hacia abajo */
+  clip-path: polygon(0% 0%, 100% 0%, 100% 85%, 50% 100%, 0% 85%);
+  transition: transform 0.2s ease;
+}
+
+.chevron-card:hover {
+  transform: translateY(-4px);
+}
+
+/* ==================== SECCIONES GENERALES ==================== */
+.section-block {
+  margin-bottom: 45px;
+}
+
+.section-label {
+  color: var(--text-green);
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin-bottom: 12px;
+}
+
+/* ==================== BANNER CON DEGRADADO ==================== */
+.gradient-banner {
+  background: var(--gradient-card);
+  border-radius: 12px;
+  padding: 30px;
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.gradient-banner p {
+  color: #0b2210;
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+/* ==================== BOTONES DE CONTACTO CIRCULARES ==================== */
+.contact-circles {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.circle-btn {
+  width: 90px;
+  height: 90px;
+  background-color: var(--card-bg);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  color: var(--card-text);
+  text-decoration: none;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-align: center;
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.circle-btn i {
+  font-size: 1.9rem;
+  transition: transform 0.2s ease;
+}
+
+.circle-btn.linkedin i {
+  color: #0a66c2;
+}
+
+.circle-btn.github i {
+  color: #181717;
+}
+
+.circle-btn.email i {
+  color: #ea4335;
+}
+
+.circle-btn.whatsapp i {
+  color: #25d366;
+}
+
+.circle-btn:hover {
+  transform: scale(1.1);
+  background-color: #ffffff;
+  box-shadow: 0 4px 15px rgba(143, 229, 55, 0.35);
+}
+
+.circle-btn:hover i {
+  transform: scale(1.1);
+}
+
+/* ==================== TARJETAS DEL PORTAFOLIO (RIBBON / CINTA) ==================== */
+.portfolio-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  max-width: 650px;
+}
+
+.ribbon-card {
+  background-color: var(--card-bg);
+  color: var(--card-text);
+  height: 195px;
+  /* Forma de banderín con corte inferior triangular */
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50% 85%, 0% 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  text-align: center;
+}
+
+.ribbon-card.project-card {
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.25s ease;
+}
+
+.ribbon-card.project-card:hover {
+  transform: translateY(-5px);
+}
+
+.project-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.ribbon-card.project-card:hover .project-img {
+  transform: scale(1.06);
+}
+
+.project-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(18, 0, 37, 0.9) 0%, rgba(18, 0, 37, 0.25) 45%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 15px 15px 32px 15px;
+  color: #ffffff;
+  opacity: 1;
+  transition: background 0.25s ease;
+}
+
+.ribbon-card.project-card:hover .project-overlay {
+  background: linear-gradient(to top, rgba(18, 0, 37, 0.95) 0%, rgba(18, 0, 37, 0.55) 60%, rgba(18, 0, 37, 0.15) 100%);
+}
+
+.project-overlay h4 {
+  color: var(--text-green);
+  font-size: 1.05rem;
+  margin-bottom: 2px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.project-overlay p {
+  color: #ffffff;
+  font-size: 0.8rem;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.card-content h4 {
+  margin-bottom: 6px;
+  font-size: 1.1rem;
+}
+
+.card-content p {
+  font-size: 0.85rem;
+  color: #333;
+}
+
+/* ==================== SECCIÓN DE DETALLES Y SKILLS ==================== */
+.details-section {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 40px;
+}
+
+.detail-label-green {
+  color: var(--text-green);
+  font-size: 1.15rem;
+  font-weight: 400;
+}
+
+.detail-title-blue {
+  color: var(--detail-blue);
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.detail-desc {
+  color: #ffffff;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  opacity: 0.85;
+}
+
+.extra-space {
+  margin-top: 20px;
+}
+
+/* ==================== FONDO ANIMADO (CANVAS) ==================== */
+#bg-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-header,
+.container {
+  position: relative;
+  z-index: 1;
+}
+
+/* ==================== ANIMACIONES DE ESCRITURA (IZQUIERDA A DERECHA) ==================== */
+@keyframes writeLeftToRight {
+  0% {
+    clip-path: inset(0 100% 0 0);
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes blinkCursor {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeUpIn {
+  0% {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.main-title {
+  animation: writeLeftToRight 1.2s ease-out forwards;
+}
+
+.sub-title.typewriter-active::after {
+  content: "|";
+  display: inline-block;
+  margin-left: 4px;
+  color: var(--text-green);
+  font-weight: bold;
+  animation: blinkCursor 0.75s step-end infinite;
+}
+
+/* Efecto de escritura izquierda a derecha al hacer scroll (siempre visible por defecto) */
+.reveal-write.animate-in {
+  animation: writeLeftToRight 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ==================== APARICIÓN AL DESPLEGAR (SCROLL REVEAL) ==================== */
+.reveal-item.animate-in {
+  animation: fadeUpIn 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+  .top-cards-section {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .portfolio-cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .main-title {
+    font-size: 1.8rem;
+  }
+
+  .contact-circles {
+    justify-content: center;
+  }
+}

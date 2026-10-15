@@ -1,0 +1,44 @@
+{
+  "page_title": "Portafolio - Yasueth Gilberto Ortega Ortega",
+  "name": "Yasueth Gilberto Ortega Ortega",
+  "title": "Desarrollador de software",
+  "nav": {
+    "about": "Sobre mí",
+    "contact": "Contacto",
+    "skills": "Habilidades",
+    "portfolio": "Portafolio",
+    "download_cv": "Descargar CV"
+  },
+  "cards": {
+    "portfolio": "Portafolio",
+    "profile_photo": "Foto de perfil",
+    "studies": "Estudios"
+  },
+  "sections": {
+    "about_me": "Sobre mí",
+    "contact": "Contacto",
+    "skills": "Habilidades",
+    "portfolio": "Portafolio",
+    "detailed_skills": "Skills",
+    "learning": "Aprendiendo",
+    "education": "Estudios"
+  },
+  "about_text": "¡Hola! Soy un apasionado desarrollador de software enfocado en crear soluciones web interactivas, accesibles y de alto impacto.",
+  "skills_summary": "Especializado en desarrollo frontend y backend, integración de APIs y buenas prácticas de desarrollo.",
+  "projects": {
+    "project1_title": "QR Studio Pro",
+    "project1_desc": "Generador de Códigos QR Profesional",
+    "project2_title": "Simulador de Matrices PRO",
+    "project2_desc": "Visualización y cálculo de matrices"
+  },
+  "skills_categories": {
+    "languages": "Lenguajes de programación",
+    "languages_desc": "JavaScript, TypeScript, Python, HTML5, CSS3",
+    "frameworks": "Frameworks y librerías",
+    "frameworks_desc": "React, Node.js, Express, TailwindCSS",
+    "tools": "Software y Herramientas",
+    "tools_desc": "Git, GitHub, VS Code, Figma, Docker",
+    "learning_desc": "Next.js, GraphQL, Inteligencia Artificial aplicada",
+    "education_desc": "Ingeniería de Software / Certificaciones de Desarrollo Web"
+  }
+}
